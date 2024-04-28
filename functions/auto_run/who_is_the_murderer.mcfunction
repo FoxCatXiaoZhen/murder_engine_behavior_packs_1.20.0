@@ -152,8 +152,19 @@ execute as @e[type=function:lobby_respawn_point,tag=time_start] at @s run functi
 
 #杀手没了就结束游戏
 execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @a[tag=game_activate,tag=main_player_] run function call_function/innocent_win
-
-
+#开启游戏运行时间计时器
+scoreboard players add @e[type=function:lobby_respawn_point,tag=time_start] tick2 1
+#发放武器
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=100}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在5秒后§a获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=120}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在4秒后§a获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=140}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在3秒后§a获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=160}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在2秒后§a获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=180}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在1秒后§a获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f已获得§n武器"}]}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s run playsound mob.enderdragon.breathe
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=2}] minecraft:bow 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=3}] minecraft:iron_sword 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
 #显示时间&职业 
 execute as @a[tag=in_game_,scores={version=..0}] at @s run titleraw @s actionbar {"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}},{"text":"\n§e金锭数量§f:"},{"score":{"name":"@s","objective":"gold"}}]}
 execute as @a[tag=in_game_,scores={version=1}] at @s run titleraw @s actionbar {"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}},{"text":"\n§e金锭数量§f:"},{"score":{"name":"@s","objective":"gold"}},{"text":"|职业:§a平民"}]}

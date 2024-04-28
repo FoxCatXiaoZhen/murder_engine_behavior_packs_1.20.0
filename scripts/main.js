@@ -17,7 +17,7 @@ world.afterEvents.entityHurt.subscribe(e => {
     
     if (e.damageSource.cause == 'projectile') {
         hurt.runCommandAsync('execute as ' + damaging + ' at @s run playsound random.orb @s ~~~ 100 0.5'),
-        hurt.runCommandAsync('execute as ' + damaging + ' at @s unless score '+hurt+' version = killer version unless score @s version = innocent version run kill @s')
+        hurt.runCommandAsync('execute as ' + damaging + ' if entity @a[name='+hurt+',scores={version=..2} unless score @s version matches 1 run kill @s')
         hurt.runCommandAsync('damage @s 100')
     }
     else{}
@@ -36,7 +36,7 @@ const showName = world.afterEvents.entityHealthChanged.subscribe(e => {
 
 world.afterEvents.entityDie.subscribe(e => {
     let die = e.deadEntity//死者
-    let damaging = e.damageSource.damagingEntity.nameTag.replace(/(?<=.*)\n.*/, "")//击杀者
+    let damaging = e.damageSource.damagingEntity.nameTag//replace(/(?<=.*)\n.*/, "")//击杀者
     die.runCommandAsync('execute as ' + damaging + ' at @s run playsound game.player.die @a ~~~ 100 1')
     //die.runCommandAsync('execute as @s[type=player] run tellraw @a {"rawtext":[{"text":"§d>>§l§b"},{"selector":"@s"},{"text":"§f被§a ' + damaging + '§f击杀了!"}]}')
     die.runCommandAsync('execute as @s[type=player] run tellraw ' + damaging + ' {"rawtext":[{"text":"§a>>§c杀死一位玩家|§6积分§b+50"}]}')
@@ -182,8 +182,8 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             if (canceled) return;
             let time = formValues[0]
             if (time===0){player.sendMessage('已将时间设置为2分钟'),player.runCommandAsync('function call_function/time/set_time_02m_00s'),player.runCommandAsync('scoreboard players set time time_setting 0')}
-            else if (time===1){player.sendMessage('已将时间设置为3分钟'),player.runCommandAsync('function call_function/time/set_time_03m_00s'),player.runCommandAsync('scoreboard player set time time_setting 1')}
-            else if (time===2){player.sendMessage('已将时间设置为5分钟'),player.runCommandAsync('function call_function/time/set_time_05m_00s'),player.runCommandAsync('scoreboard player set time time_setting 2')}
+            else if (time===1){player.sendMessage('已将时间设置为3分钟'),player.runCommandAsync('function call_function/time/set_time_03m_00s'),player.runCommandAsync('scoreboard players set time time_setting 1')}
+            else if (time===2){player.sendMessage('已将时间设置为5分钟'),player.runCommandAsync('function call_function/time/set_time_05m_00s'),player.runCommandAsync('scoreboard players set time time_setting 2')}
     })
 
 

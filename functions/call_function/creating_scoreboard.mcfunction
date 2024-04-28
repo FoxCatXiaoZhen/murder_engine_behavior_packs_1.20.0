@@ -19,6 +19,8 @@ scoreboard objectives add point dummy point
 scoreboard objectives add tick dummy tick
 scoreboard objectives add second dummy second
 scoreboard objectives add minute dummy minute
+#侦测游戏运行的时间
+scoreboard objectives add tick2 dummy 
 #设定时间
 scoreboard objectives add time_setting dummy
 scoreboard players add time time_setting 0
