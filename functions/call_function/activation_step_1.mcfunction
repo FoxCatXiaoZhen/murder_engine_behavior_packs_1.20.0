@@ -1,0 +1,2 @@
+say hi
+kill @s

@@ -1,0 +1,13 @@
+#用execute选择职业
+#execute if score @s version = killer version (方案舍弃)
+
+
+
+
+#################################
+scoreboard version = 职业
+0 = 无职业
+1 = 平民
+2 = 侦探
+3 = 杀手
+#################################

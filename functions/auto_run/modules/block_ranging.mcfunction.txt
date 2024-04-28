@@ -1,0 +1,145 @@
+#固定盔甲座
+execute @e[type=armor_stand,tag=point1] ~~~ tp ~~~
+execute @e[type=armor_stand,tag=point2] ~~~ tp ~~~
+
+
+#scoreboard新建 / 以及开始
+execute @e[type=armor_stand,tag=point1,tag=!run] ~~~ execute @e[type=armor_stand,tag=point2] ~~~ scoreboard objectives add "x" dummy "x" 
+execute @e[type=armor_stand,tag=point1,tag=!run] ~~~ execute @e[type=armor_stand,tag=point2] ~~~ scoreboard objectives add "y" dummy "y" 
+execute @e[type=armor_stand,tag=point1,tag=!run] ~~~ execute @e[type=armor_stand,tag=point2] ~~~ scoreboard objectives add "z" dummy "z"
+execute @e[type=armor_stand,tag=point1,tag=!run] ~~~ execute @e[type=armor_stand,tag=point2] ~~~ tellraw @a {"rawtext":[{"text":"正在计算距离。。。"}]}
+execute @e[type=armor_stand,tag=point1,tag=!run] ~~~ execute @e[type=armor_stand,tag=point2] ~~~ tag @e[type=armor_stand,tag=point1] add run
+
+
+
+
+#=======移动并添加分数=======
+
+#up 上
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=0,dy=999999999,dz=0,x=~,y=~1,z=~] ~~~ tag  @e[type=armor_stand,tag=point1] add up
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=up,c=1,r=1] ~~~ tp ~~1~
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=up,c=1,r=1] ~~~ scoreboard players add @s "y" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=up,c=1,r=1] ~~~ tag @s remove down
+
+
+#down 下
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=0,dy=-999999999,dz=0,x=~,y=~-1,z=~] ~~~ tag  @e[type=armor_stand,tag=point1] add down
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=down,c=1,r=1] ~~~ tp ~~-1~
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=down,c=1,r=1] ~~~ scoreboard players add @s "y" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=down,c=1,r=1] ~~~ tag @s remove up
+
+#forward 前
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=0,dy=1999999999,dz=999999999,x=~,y=~-999999999,z=~1] ~~~ tag @e[type=armor_stand,tag=point1] add forward
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=forward,c=1,r=1] ~~~ tp ~~~1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=forward,c=1,r=1] ~~~ scoreboard players add @s "z" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=forward,c=1,r=1] ~~~ tag @s remove forward
+
+#back 后
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=0,dy=1999999999,dz=-999999999,x=~,y=~-999999999,z=~-1] ~~~ tag @e[type=armor_stand,tag=point1] add back
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=back,c=1,r=1] ~~~ tp ~~~-1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=back,c=1,r=1] ~~~ scoreboard players add @s "z" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=back,c=1,r=1] ~~~ tag @s remove back
+
+
+#left 左
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=999999999,dy=1999999999,dz=0,x=~1,y=~-999999999,z=~] ~~~ tag @e[type=armor_stand,tag=point1] add left
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=left,c=1,r=1] ~~~ tp ~1~~
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=left,c=1,r=1] ~~~ scoreboard players add @s "x" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=left,c=1,r=1] ~~~ tag @s remove left
+
+#right 右
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=-999999999,dy=1999999999,dz=0,x=~-1,y=~-999999999,z=~] ~~~ tag @e[type=armor_stand,tag=point1] add right
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=right,c=1,r=1] ~~~ tp ~-1~~
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=right,c=1,r=1] ~~~ scoreboard players add @s "x" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=right,c=1,r=1] ~~~ tag @s remove right
+
+
+
+#zuoshangqian 左上前角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=999999999,dy=999999999,dz=999999999,x=~1,y=~,z=~1] ~~~ tag @e[type=armor_stand,tag=point1] add zuoshangqian
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshangqian,c=1,r=1] ~~~ tp ~1~~1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshangqian,c=1,r=1] ~~~ scoreboard players add @s "x" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshangqian,c=1,r=1] ~~~ scoreboard players add @s "z" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshangqian,c=1,r=1] ~~~ tag @s remove zuoshangqian
+
+#youshangqian 右上前角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=-999999999,dy=999999999,dz=999999999,x=~-1,y=~,z=~1] ~~~ tag @e[type=armor_stand,tag=point1] add youshangqian
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshangqian,c=1,r=1] ~~~ tp ~-1~~1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshangqian,c=1,r=1] ~~~ scoreboard players add @s "x" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshangqian,c=1,r=1] ~~~ scoreboard players add @s "z" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshangqian,c=1,r=1] ~~~ tag @s remove youshangqian
+
+#youshangqian 左下前角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=999999999,dy=-999999999,dz=999999999,x=~1,y=~-1,z=~1] ~~~ tag @e[type=armor_stand,tag=point1] add zuoxiaqian
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiaqian,c=1,r=1] ~~~ tp ~1~~1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiaqian,c=1,r=1] ~~~ scoreboard players add @s "x" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiaqian,c=1,r=1] ~~~ scoreboard players add @s "z" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiaqian,c=1,r=1] ~~~ tag @s remove zuoxiaqian
+
+#youshangqian 右下前角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=-999999999,dy=-999999999,dz=999999999,x=~-1,y=~-1,z=~1] ~~~ tag @e[type=armor_stand,tag=point1] add youxiaqian
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiaqian,c=1,r=1] ~~~ tp ~-1~~1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiaqian,c=1,r=1] ~~~ scoreboard players add @s "x" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiaqian,c=1,r=1] ~~~ scoreboard players add @s "z" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiaqian,c=1,r=1] ~~~ tag @s remove youxiaqian
+
+
+
+#zuoshangqian 左上后角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=999999999,dy=999999999,dz=-999999999,x=~1,y=~,z=~-1] ~~~ tag @e[type=armor_stand,tag=point1] add zuoshanghou
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshanghou,c=1,r=1] ~~~ tp ~1~~-1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshanghou,c=1,r=1] ~~~ scoreboard players add @s "x" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshanghou,c=1,r=1] ~~~ scoreboard players add @s "z" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoshanghou,c=1,r=1] ~~~ tag @s remove zuoshanghou
+
+#youshangqian 右上后角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=-999999999,dy=999999999,dz=-999999999,x=~-1,y=~,z=~-1] ~~~ tag @e[type=armor_stand,tag=point1] add youshanghou
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshanghou,c=1,r=1] ~~~ tp ~-1~~-1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshanghou,c=1,r=1] ~~~ scoreboard players add @s "x" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshanghou,c=1,r=1] ~~~ scoreboard players add @s "z" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youshanghou,c=1,r=1] ~~~ tag @s remove youshanghou
+
+#youshangqian 左下后角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=999999999,dy=-999999999,dz=-999999999,x=~1,y=~-1,z=~-1] ~~~ tag @e[type=armor_stand,tag=point1] add zuoxiahou
+
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiahou,c=1,r=1] ~~~ tp ~1~~-1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiahou,c=1,r=1] ~~~ scoreboard players add @s "x" 1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiahou,c=1,r=1] ~~~ scoreboard players add @s "z" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=zuoxiahou,c=1,r=1] ~~~ tag @s remove zuoxiahou
+
+#youshangqian 右下后角
+execute @e[type=armor_stand,tag=point1] ~~~  execute @e[type=armor_stand,tag=point2,dx=-999999999,dy=-999999999,dz=-999999999,x=~-1,y=~-1,z=~-1] ~~~ tag @e[type=armor_stand,tag=point1] add youxiahou
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiahou,c=1,r=1] ~~~ tp ~-1~~-1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiahou,c=1,r=1] ~~~ scoreboard players add @s "x" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiahou,c=1,r=1] ~~~ scoreboard players add @s "z" -1
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=youxiahou,c=1,r=1] ~~~ tag @s remove youxiahou
+
+
+
+
+
+
+
+#end 当与point2重叠时结束任务，并且发出坐标
+execute @e[type=armor_stand,tag=point2] ~~~ execute @e[type=armor_stand,tag=point1,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ tag @e[type=armor_stand,tag=point1] add end
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ /tellraw @a {"rawtext":[{"text":"计算结束 "},{"text":"x~"},{"score":{"name":"@s","objective":"x"}},{"text":" y~"},{"score":{"name":"@s","objective":"y"}},{"text":" z~"},{"score":{"name":"@s","objective":"z"}},{"text":" 位置"}]}
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ kill @e[type=armor_stand,tag=point2,c=1,r=1]
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ scoreboard objectives remove "x"
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ scoreboard objectives remove "y"
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ scoreboard objectives remove "z"
+execute @e[type=armor_stand,tag=point1] ~~~ execute @e[type=armor_stand,tag=end,dx=0,dy=0,dz=0,x=~,y=~,z=~] ~~~ kill @s 
+
+
+
