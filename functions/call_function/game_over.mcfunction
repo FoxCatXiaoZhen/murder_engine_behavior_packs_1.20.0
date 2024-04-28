@@ -10,6 +10,6 @@ clear @a bow
 tag @a remove died
 
 function call_function/reset_player_respawn_data 
-execute if score time time_setting matches 0 run function /time/set_time_02m_00s
-execute if score time time_setting matches 1 run function /time/set_time_03m_00s
+execute if score time time_setting matches 0 run function callfunction/time/set_time_02m_00s
+execute if score time time_setting matches 1 run function call_function/time/set_time_03m_00s
 execute if score time time_setting matches 2 run function call_function/time/set_time_05m_00s

@@ -20,7 +20,7 @@ scoreboard players add @a online 1
 #侦测玩家是否获得足够的金锭
 ###################################################
 #给玩家附魔无限,避免箭矢被玩家获得
-enchant @a infinity 1 
+execute as @a run enchant @a infinity 1 
 #在玩家身上放置箭矢
 replaceitem entity @a slot.inventory 0 arrow 1 0 {"minecraft:item_lock":{"mode":"lock_in_slot"}}
 #侦测玩家身上的金锭,将金锭替换成gold的分数
@@ -135,11 +135,11 @@ tag @e[type=function:lobby_respawn_point] remove lobby_
 #################################################
 
 #时间耗尽 / 平民获胜
-execute as @e[type=function:lobby_respawn_point,scores={tick=..0}] at @s run execute if entity @s[scores={second=..0}] run execute if entity @s[scores={minute=..0}] run function call_function/innocent_win
+execute as @a[tag=in_game_,c=1] as @e[type=function:lobby_respawn_point,scores={tick=..0}] at @s run execute if entity @s[scores={second=..0}] run execute if entity @s[scores={minute=..0}] run function call_function/innocent_win
 
 #检测到所有平民都无了 / 就执行 function call_function/killer_win
 execute as @a[scores={version=1..2},tag=!died] at @s run scoreboard players add @e[type=function:lobby_respawn_point] num1 1
-#s execute if entity @e[type=function:lobby_respawn_point,scores={num1=1..}] run say is 1>
+#s execute if entity @e[typew=function:lobby_respawn_point,scores={num1=1..}] run say is 1>
 execute as @e[type=function:lobby_respawn_point,scores={num1=..0}] at @s[scores={num2=10..}] if entity @a[tag=game_activate,tag=main_player_] run function call_function/killer_win
 scoreboard players add @e[type=function:lobby_respawn_point,scores={num2=0..10}] num2 1
 scoreboard players set @e[type=function:lobby_respawn_point] num1 0
@@ -151,10 +151,10 @@ scoreboard players add @e[type=function:lobby_respawn_point] minute 0
 execute as @e[type=function:lobby_respawn_point,tag=time_start] at @s run function call_function/modules/time/subtract_tick
 
 #杀手没了就结束游戏
-execute unless entity @a[scores={version=3},tag=!died]  run execute if entity @a[tag=game_activate,tag=main_player_] run function call_function/innocent_win
+execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @a[tag=game_activate,tag=main_player_] run function call_function/innocent_win
 
 
-#显示时间 
+#显示时间&职业 
 execute as @a[tag=in_game_,scores={version=..0}] at @s run titleraw @s actionbar {"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}},{"text":"\n§e金锭数量§f:"},{"score":{"name":"@s","objective":"gold"}}]}
 execute as @a[tag=in_game_,scores={version=1}] at @s run titleraw @s actionbar {"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}},{"text":"\n§e金锭数量§f:"},{"score":{"name":"@s","objective":"gold"}},{"text":"|职业:§a平民"}]}
 execute as @a[tag=in_game_,scores={version=2}] at @s run titleraw @s actionbar {"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}},{"text":"\n§e金锭数量§f:"},{"score":{"name":"@s","objective":"gold"}},{"text":"|职业:§b侦探"}]}
