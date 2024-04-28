@@ -7,7 +7,6 @@ var setting = world.scoreboard.getObjective("setting")
 
 world.afterEvents.worldInitialize.subscribe(() => {
     
-    if (!setting.hasParticipant("showName")) setting_obj.setScore("showName", 0)
 })
 //侦测伤害
 world.afterEvents.entityHurt.subscribe(e => {
@@ -99,21 +98,21 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             if (canceled) return;
         if (selection === 0) {player.runCommandAsync('fun')}
     })}
-    function setting1(player) {//玩家资料
-        const playerName = player.name;
-        const ui = new ModalFormData();
-        ui.title('§l§b玩家§a资料');
-        ui.toggle("§l隐藏名称", Boolean(setting.getScore("showName")))
-        ui.show(player).then((v) => {
-            if (v.canceled) return
-            var values = v.formValues
-            if (values[0]) world.afterEvents.entityHealthChanged.subscribe(showName)
-            else {
-                world.afterEvents.entityHealthChanged.unsubscribe(showName)
-                world.getAllPlayers().forEach(p => p.nameTag = p.name)}
+    //function setting1(player) {//玩家资料
+    //    const playerName = player.name;
+    //    const ui = new ModalFormData();
+    //    ui.title('§l§b玩家§a资料');
+    //    ui.toggle("§l隐藏名称", Boolean(setting.getScore("showName")))
+    //    ui.show(player).then((v) => {
+     //       if (v.canceled) return
+      //      var values = v.formValues
+       //     if (values[0]) world.afterEvents.entityHealthChanged.subscribe(showName)
+        //    else {
+         //       world.afterEvents.entityHealthChanged.unsubscribe(showName)
+           //     world.getAllPlayers().forEach(p => p.nameTag = p.name)}
 
-        })
-    };
+      //  })
+    //};
     function game(player) {//游戏设置
         const playerName = player.name;
         const ui = new ActionFormData();
@@ -182,7 +181,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             let { formValues, canceled } = data;
             if (canceled) return;
             let time = formValues[0]
-            if (time===0){player.sendMessage('已将时间设置为2分钟'),player.runCommandAsync('function call_function/time/set_time_02m_00s'),player.runCommandAsync('scoreboard player set time time_setting 0')}
+            if (time===0){player.sendMessage('已将时间设置为2分钟'),player.runCommandAsync('function call_function/time/set_time_02m_00s'),player.runCommandAsync('scoreboard players set time time_setting 0')}
             else if (time===1){player.sendMessage('已将时间设置为3分钟'),player.runCommandAsync('function call_function/time/set_time_03m_00s'),player.runCommandAsync('scoreboard player set time time_setting 1')}
             else if (time===2){player.sendMessage('已将时间设置为5分钟'),player.runCommandAsync('function call_function/time/set_time_05m_00s'),player.runCommandAsync('scoreboard player set time time_setting 2')}
     })

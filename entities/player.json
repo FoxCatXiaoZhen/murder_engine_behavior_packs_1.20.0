@@ -106,8 +106,8 @@
 				"generates_bubbles": false
 			},
 			"minecraft:nameable": {
-				"always_show": true,
-				"allow_name_tag_renaming": true
+				"always_show": false,
+				"allow_name_tag_renaming": false
 			},
 			"minecraft:physics": {},
 			"minecraft:pushable": {
@@ -181,14 +181,14 @@
 					"objective":"version",
 					"subject":"self",
 					"operator":"=",
-					"value":"murder",
+					"value":"3",
 					"deals_damage":false},
 					{
 					"test":"has_score",
 					"objective":"version",
 					"subject":"other",
 					"operator":"=",
-					"value":"murder",
+					"value":"3",
 					"deals_damage":false
 				}
 					
