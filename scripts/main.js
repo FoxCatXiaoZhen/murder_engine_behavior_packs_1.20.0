@@ -13,18 +13,19 @@ world.afterEvents.entityHurt.subscribe(e => {
     
     let damage = Math.ceil(e.damage)//伤害值
     let hurt = e.hurtEntity//受害者
+    let hurting = e.hurtEntity.nameTag//受害者id
     let damaging = e.damageSource.damagingEntity.nameTag//.replace(/(?<=.*)\n.*/, "")//伤害者
+    //system.run(() => hurt.runCommandAsync('say '+hurting));
+   if (e.damageSource.cause == 'projectile') {
+        hurt.runCommandAsync('damage @s 100 entity_attack entity '+damaging),
+        hurt.runCommandAsync('execute as @a[name='+hurting+',scores={version=1..2}] at @s run kill @a[name='+damaging+',scores={version=2}]')
+
     
-    if (e.damageSource.cause == 'projectile') {
-        hurt.runCommandAsync('execute as ' + damaging + ' at @s run playsound random.orb @s ~~~ 100 0.5'),
-        hurt.runCommandAsync('execute as ' + damaging + ' if entity @a[name='+hurt+',scores={version=..2} unless score @s version matches 1 run kill @s')
-        hurt.runCommandAsync('damage @s 100')
-    }
-    else{}
+     
 
     
 
-})
+}})
 
 const showName = world.afterEvents.entityHealthChanged.subscribe(e => {
     if (e.newValue < 0) return
@@ -40,7 +41,11 @@ world.afterEvents.entityDie.subscribe(e => {
     die.runCommandAsync('execute as ' + damaging + ' at @s run playsound game.player.die @a ~~~ 100 1')
     //die.runCommandAsync('execute as @s[type=player] run tellraw @a {"rawtext":[{"text":"§d>>§l§b"},{"selector":"@s"},{"text":"§f被§a ' + damaging + '§f击杀了!"}]}')
     die.runCommandAsync('execute as @s[type=player] run tellraw ' + damaging + ' {"rawtext":[{"text":"§a>>§c杀死一位玩家|§6积分§b+50"}]}')
-    die.runCommandAsync('scoreboard players add ' + damaging + ' score 50 ')
+    die.runCommandAsync('scoreboard players add ' + damaging + ' scores 50 ')
+    die.runCommandAsync('clear @s bow 0 1')
+    die.runCommandAsync('clear @s iron_sword 0 1')
+    die.runCommandAsync('clear @s filled_map')
+    die.runCommandAsync('tellraw @a {"rawtext":[{"text":">>§l§c一名玩家已死亡"}]}')
 
 
 })
@@ -174,7 +179,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         const playerName = player.name;
         const ui = new ModalFormData();
         ui.title('时间设置')
-        ui.dropdown('时间设置',['2分钟', '3分钟', '5分钟'])
+        ui.dropdown('时间设置',['2分钟', '3分钟', '5分钟','10分钟','15分钟'])
 
 
         ui.show(player).then(data => {
@@ -184,6 +189,8 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             if (time===0){player.sendMessage('已将时间设置为2分钟'),player.runCommandAsync('function call_function/time/set_time_02m_00s'),player.runCommandAsync('scoreboard players set time time_setting 0')}
             else if (time===1){player.sendMessage('已将时间设置为3分钟'),player.runCommandAsync('function call_function/time/set_time_03m_00s'),player.runCommandAsync('scoreboard players set time time_setting 1')}
             else if (time===2){player.sendMessage('已将时间设置为5分钟'),player.runCommandAsync('function call_function/time/set_time_05m_00s'),player.runCommandAsync('scoreboard players set time time_setting 2')}
+            else if (time===3){player.sendMessage('已将时间设置为10分钟'),player.runCommandAsync('function call_function/time/set_time_10m_00s'),player.runCommandAsync('scoreboard players set time time_setting 3')}
+            else if (time===4){player.sendMessage('已将时间设置为15分钟'),player.runCommandAsync('function call_function/time/set_time_15m_00s'),player.runCommandAsync('scoreboard players set time time_setting 4')}
     })
 
 

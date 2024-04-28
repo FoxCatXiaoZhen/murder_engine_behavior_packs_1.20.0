@@ -27,14 +27,19 @@ replaceitem entity @a slot.inventory 0 arrow 1 0 {"minecraft:item_lock":{"mode":
 execute as @a[hasitem={item=gold_ingot,quantity=1..}] at @s run scoreboard players add @s gold 1
 execute as @a[hasitem={item=gold_ingot,quantity=1..}] at @s run clear @s gold_ingot 0 1
 #给与物品后减少玩家分数
-execute as @a[scores={version=1}] unless entity @s[hasitem={item=bow}] if score @s gold >= bow gold run give @s bow 1 10000 {"minecraft:item_lock":{"mode":"lock_in_inventory"}}
-execute as @a[scores={version=1}] unless entity @s[hasitem={item=bow}] if score @s gold >= bow gold run scoreboard players operation @s gold -= bow gold
+execute as @a[scores={version=1}] if score @s gold >= bow gold run give @s bow 1 10000 {"minecraft:item_lock":{"mode":"lock_in_inventory"}}
+execute as @a[scores={version=1}] if score @s gold >= bow gold run scoreboard players operation @s gold -= bow gold
+
+
 
 ####################################################
 
-
-
-
+#gamerule
+################
+gamerule showdeathmessages false
+gamerule sendcommandfeedback false
+gamerule showtags false
+################
 
 
 
@@ -45,7 +50,10 @@ tag @e[type=player] add death
 
 #s execute as @a[tag=!death] at @s run say @s 被指令检测死亡
 #s execute as @a[tag=!death] at @s run setblock ~~~ grass_block
-execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+#execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+execute as @a[tag=!death] at @s run clear @s bow
+execute as @a[tag=!death] at @s run clear @s minecraft:filled_map
+execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
 execute as @a[tag=!death] at @s run tag @s add died
 
 ################################
@@ -176,7 +184,7 @@ execute as @a[tag=in_game_,scores={version=3}] at @s run titleraw @s actionbar {
 scoreboard players add @e[type=function:gold_ingot_generator] tick 0
 scoreboard players add @e[type=function:gold_ingot_generator,tag=run_] tick -1
 execute as @e[type=function:gold_ingot_generator,scores={tick=0},tag=run_] at @s unless entity @e[r=1,type=item] run structure load gold_ ~~~
-execute as @e[type=function:gold_ingot_generator,tag=run_,scores={tick=!0..}] at @s run scoreboard players random @s tick 500 1000
+execute as @e[type=function:gold_ingot_generator,tag=run_,scores={tick=!0..}] at @s run scoreboard players random @s tick 300 500
 
 
 

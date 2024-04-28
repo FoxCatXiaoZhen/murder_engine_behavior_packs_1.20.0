@@ -15,3 +15,5 @@ function call_function/reset_player_respawn_data
 execute if score time time_setting matches 0 run function call_function/time/set_time_02m_00s
 execute if score time time_setting matches 1 run function call_function/time/set_time_03m_00s
 execute if score time time_setting matches 2 run function call_function/time/set_time_05m_00s
+execute if score time time_setting matches 3 run function call_function/time/set_time_10m_00s
+execute if score time time_setting matches 4 run function call_function/time/set_time_15m_00s
