@@ -2,7 +2,8 @@
 	
     "values": [	
 		
-	"auto_run/who_is_the_murderer"
+	"auto_run/who_is_the_murderer",
+	"auto_run/innocent_to_shuffle_detect"
 
 	]
 }
