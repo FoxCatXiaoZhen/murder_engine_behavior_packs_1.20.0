@@ -36,9 +36,9 @@ execute as @a[scores={version=1}] if score @s gold >= bow gold run scoreboard pl
 
 #gamerule
 ################
-gamerule showdeathmessages false
-gamerule sendcommandfeedback false
-gamerule showtags false
+#s gamerule showdeathmessages false
+#s gamerule sendcommandfeedback false
+#s gamerule showtags false
 ################
 
 
