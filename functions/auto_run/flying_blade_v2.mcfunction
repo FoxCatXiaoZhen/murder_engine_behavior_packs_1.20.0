@@ -11,10 +11,16 @@ execute as @e[type=function:flying_blade] at @s if block ~~~ air run tp ^^^0.5
 
 
 ##由于杀手的头垂直角度无法复制进飞刀实体上，所只能自动修正高度。##可能无法采用，需要尝试用跟踪算法矫正
-#如果目标位于上方，就升高。
-execute as @e[type=function:flying_blade] at @s if entity @e[scores={version=1..2},y=~0,x=~-10000,z=~-10000,dx=100000,dy=1000,dz=100000] run tp ~~0.2~
-#如果目标位于下方，就下降。
-execute as @e[type=function:flying_blade] at @s if entity @e[scores={version=1..2},y=~-1,x=~-10000,z=~-10000,dx=100000,dy=-1000,dz=100000] run tp ~~-0.2~
+#如果靠近的目标位于上方，就升高。
+execute as @e[type=function:flying_blade] at @s if entity @e[scores={version=1..2},c=1,y=~0,x=~-10000,z=~-10000,dx=100000,dy=1000,dz=100000] run tp ~~0.2~
+#如果靠近的目标位于下方，就下降。
+execute as @e[type=function:flying_blade] at @s if entity @e[scores={version=1..2},c=1,y=~-1,x=~-10000,z=~-10000,dx=100000,dy=-1000,dz=100000] run tp ~~-0.2~
+
+
+#如果上方有方块，就下降
+execute as @e[type=function:flying_blade] at @s unless block ~~-1~ air run tp ~~0.2~
+#如果下方有方块，就上升
+execute as @e[type=function:flying_blade] at @s unless block ~~1~ air run tp ~~-0.2~
 
 
 #当碰撞墙壁就消除自己
