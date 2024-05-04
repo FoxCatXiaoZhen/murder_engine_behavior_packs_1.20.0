@@ -54,6 +54,7 @@ world.beforeEvents.itemUse.subscribe(e=>{
     const player = e.source;
 
     if (e.itemStack.typeId=='minecraft:compass'&&player.isOp()) system.run(() => game(player))
+    else if (e.itemStack.typeId=='minecraft:iron_sword') system.run(() => player.runCommandAsync('function call_function/flying_blade/summon_blade'))
 
 
 })
@@ -127,6 +128,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         ui.button('强制结束',"textures/items/ruby")
         ui.button('游戏时间设置',"textures/items/clock_item")
         ui.button('设置弓箭价格',"textures/items/bow_pulling_1")
+        ui.button('设置抛刀冷却',"textures/items/iron_sword")
 
         ui.show(player).then(({ selection, canceled }) => {
             if (canceled) return;
@@ -134,6 +136,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         else if (selection === 1) {player.playSound('note.bass'),player.runCommandAsync('function stop')}//强制结束
         else if (selection === 2) {time_setting(player),player.playSound('note.pling')}//设置游戏时间
         else if (selection === 3) {bow_price_setting(player),player.playSound('note.pling')}//弓箭价格
+        else if (selection === 4) {knive_cd_setting(player),player.playSound('note.pling')}//抛刀冷却
 
         })
         function start(player) {//游戏开始选择
@@ -142,7 +145,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
             ui.title('§l§b游戏开始');
             ui.body('选择一个游戏种类开始吧w')
             ui.button('经典模式')
-            ui.button('双杀手模式')
+            ui.button('双杀手模式|测试版[飞刀不可同时使用]')
             ui.button('返回',"textures/ui/settings_glyph_color_2x")
     
             ui.show(player).then(({ selection, canceled }) => {
@@ -157,11 +160,30 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
 
 
     };
+    function knive_cd_setting(player){//游戏时间设置
+        const playerName = player.name;
+        const ui = new ModalFormData();
+        ui.title('抛刀冷却设置')
+        ui.slider('冷却时间',5,120,10)
+
+
+        ui.show(player).then(data => {
+            let { formValues, canceled } = data;
+            if (canceled) return;
+            let cd = formValues[0]
+            let cd2 = cd*20
+            player.playSound('random.orb')
+            player.runCommandAsync('scoreboard players set knive_cd time_setting '+cd2)
+            player.runCommandAsync('tellraw @a {"rawtext":[{"text":"§d>>§c飞刀§b冷却§f已设置为§d'+cd+'!"}]}')
+    })
+
+
+    }
     function bow_price_setting(player){//游戏时间设置
         const playerName = player.name;
         const ui = new ModalFormData();
         ui.title('弓箭价格设置')
-        ui.slider('价格设置',1,30,1)
+        ui.slider('价格设置',1,30,10)
 
 
         ui.show(player).then(data => {
