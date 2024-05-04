@@ -4,6 +4,9 @@ tag @e[type=function:lobby_respawn_point] remove time_start
 scoreboard players reset @e[type=function:gold_ingot_generator] tick
 tag @e[type=function:gold_ingot_generator] remove run_
 kill @e[type=item]
+scoreboard players set @a tick2 0
+kill @e[type=function:flying_blade]
+kill @e[type=function:knive_navigation]
 scoreboard players set @a gold 0 
 scoreboard players set @a version 0 
 clear @a iron_sword
