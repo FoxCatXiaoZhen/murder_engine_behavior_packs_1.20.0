@@ -5,6 +5,7 @@ scoreboard players add @a online 0
 ################################
 
 #如果第一位玩家加入时，就给予"main_player_"标签，且如果一个游戏世界有了"main_player_"的玩家就略过执行，后来加入的玩家将不会给与"main_player_"标签，这就仅限于房主用的标签。 
+execute as @a[scores={online=0}] at @s run function call_function/function_is_executed_once_when_the_player_joins 
 execute as @a[scores={online=0}] at @s run tag @s remove main_player_
 execute as @a[scores={online=0}] at @s unless entity @a[tag=main_player_] run function call_function/creating_scoreboard 
 execute as @a[scores={online=0}] at @s unless entity @a[tag=main_player_] run tag @s add main_player_
@@ -36,9 +37,9 @@ execute as @a[scores={version=1}] if score @s gold >= bow gold run scoreboard pl
 
 #gamerule
 ################
-#s gamerule showdeathmessages false
-#s gamerule sendcommandfeedback false
-#s gamerule showtags false
+gamerule showdeathmessages false
+gamerule sendcommandfeedback false
+gamerule showtags false
 ################
 
 
