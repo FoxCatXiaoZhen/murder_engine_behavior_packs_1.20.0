@@ -1,1 +1,12 @@
-tellraw @s {    "rawtext": [        {            "text": "================\n\n欢迎使用谁是杀手游戏引擎！\n引擎提供无需编写游戏机制，\n透过放置"        },        {            "rawtext": [                                {                    "translate": "entity.function:player_respawn_point.name"                }]},                {                    "text": " , 透过启动游戏，将玩家传送您自制的地图中。\n"                },                {                    "rawtext": [                {                    "translate": "entity.function:lobby_respawn_point.name"                }]},                {                    "text": " , 放置该实每天当游戏结束时，就会传送该处。\n"                },                {                    "rawtext": [                {                    "translate": "entity.function:gold_ingot_generator.name"                }]},                {                    "text": " , 可布置在你的地图中。游戏中收集生成出来的金锭，可获得反杀杀手武器\n\n================"                }            ]        }        
+#测试如果tp到未加载区块再传回
+#stp 0 10 10000000
+#sexecute as @s at @s run say hi
+#stp @s @p
+
+#只要在同一个tick执行，即便实体被传送到未加载区块，其实可以被执行
+summon creeper
+tag @e[type=creeper,c=1,r=1] add test_
+tp @e[tag=test_] 0 10 1000000
+execute as @e[tag=test_] at @s run say hi
+tp @e[tag=test_] @s
+kill @e[tag=test_]

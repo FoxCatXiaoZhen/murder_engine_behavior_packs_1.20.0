@@ -3,7 +3,7 @@
     "header": {
         "name": "谁是杀手游戏引擎Addons 行为包 1.20.0",
         "description": "引擎配置了所有谁是杀手游戏所需要的功能，仅支持1.20.0以上版本的minecraft。",
-        "uuid": "5224682e-ddc8-4572-b37b-0cba69191829",
+        "uuid": "e8bd3fcb-ac53-43d8-a9ea-ae845d8b6807",
         "version": [0, 0, 1],
         "min_engine_version": [ 1, 20, 73 ]
     },
@@ -17,9 +17,10 @@
 		{
 			"description": "引擎配置了所有谁是杀手游戏所需要的功能，仅支持1.20.0以上版本的minecraft。",                     
 			"type": "data",                            
-			"uuid": "c2c7e4a1-ab60-46d5-8231-4445d4299657",            
+			"uuid": "6a5fda36-4865-4595-9421-c5b47ffa6acb",            
 			"version": [ 0, 0, 1]                                    
-		},
+		}
+		,
 		{
 			"uuid": "34dafcc6-8b54-4ec7-a4d5-994e51a0a346",
 			"version": [1, 0, 0],
@@ -28,7 +29,7 @@
 			"entry": "scripts/main.js"
 		}
 		],
-    "dependencies": [
+    	"dependencies": [
 		{
 			"module_name": "@minecraft/server",
 			"version": "1.11.0-beta"
