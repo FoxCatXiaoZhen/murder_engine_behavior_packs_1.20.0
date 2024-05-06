@@ -1,4 +1,4 @@
-playsound scrape @a ~~~ 0.5
+playsound scrape @a ~~~ 0.5 1.2
 summon function:flying_blade ^^1^
 summon function:knive_navigation ^^1^10
 execute as @e[c=1,type=function:flying_blade,tag=!run_] at @s run tp ^^^ facing @e[c=1,type=function:knive_navigation,tag=!run_]

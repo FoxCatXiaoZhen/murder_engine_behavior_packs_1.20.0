@@ -15,7 +15,7 @@
 			"minecraft:hand_equipped": false,
 			"minecraft:cooldown": {
 				"category": "game",
-				"duration": 1
+				"duration": -1
 			},
 			"minecraft:on_use": {
 				"on_use": {
