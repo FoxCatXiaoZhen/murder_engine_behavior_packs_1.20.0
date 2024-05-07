@@ -12,3 +12,7 @@ execute as @e[type=function:flying_blade,scores={tick=100..}] at @s run function
 
 #把大厅的导航实体清除
 execute as @e[type=function:lobby_respawn_point,c=1] at @s run kill @e[type=function:knive_navigation,r=2,tag=run_]
+
+#冷却
+execute as @e[scores={version=3}] at @s run scoreboard players add @s[scores={tick2=0..}] tick2 -1
+execute as @e[scores={version=3}] at @s run give @s[scores={tick2=0}] function:flying_blade

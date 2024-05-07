@@ -54,6 +54,7 @@ tag @e[type=player] add death
 execute as @a[tag=!death] at @s run clear @s bow
 execute as @a[tag=!death] at @s run clear @s minecraft:filled_map
 execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
+execute as @a[tag=!death] at @s run clear @s function:flying_blade
 execute as @a[tag=!death] at @s run tag @s add died
 execute as @a[tag=!death] at @s[scores={version=2}] run summon function:hat_item 
 execute as @a[tag=!death] at @s run scoreboard players set @s version 0
@@ -102,26 +103,15 @@ scoreboard players set @a[tag=main_player_] num3 0
 
 
 #清除点 / 当生成就删除最近的自定义实体 / 发送信息和粒子效果
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function] at @s run tellraw @a[tag=main_player_] {"rawtext":[{"text":">> §c删除了§f§o : "}, {"selector":"@s"}        ]}
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function,type=function:player_respawn_point] at @s run particle fx:player_respawn_point
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function,type=function:lobby_respawn_point ] at @s run particle fx:lobby_respawn_point 
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function,type=function:gold_ingot_generator] at @s run particle fx:gold_ingot_generator 
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function] at @s run particle fx:x
-execute as @e[type=function:remove_point] at @s run execute as @e[c=1,family=function] at @s run kill @s
-kill @e[type=function:remove_point]
+execute as @e[type=function:remove_point] at @s run function call_function/remove_point
 
 
 
 #大厅数量限制器 / 避免bug
-tag @e[type=function:lobby_respawn_point,c=1] add lobby_
-execute as @e[type=function:lobby_respawn_point,tag=!lobby_] at @s run title @a[tag=main_player_] title §c仅限一个大厅
+execute as @e[type=function:lobby_respawn_point] at @s unless entity @e[type=function:lobby_respawn_point,tag=lobby_] run tag @s add lobby_
+execute as @e[type=function:lobby_respawn_point,tag=!lobby_] at @s run tellraw @a[tag=main_player_] {"rawtext":[{"text":">> §c§o仅限放置一个"}, {"selector":"@e[type=function:lobby_respawn_point,tag=lobby_]"}         ]}
+execute as @e[type=function:lobby_respawn_point,tag=!lobby_] at @s run playsound error @a[tag=main_player_] ~~~ 0.5
 kill @e[tag=!lobby_,type=function:lobby_respawn_point]
-tag @e[type=function:lobby_respawn_point] remove lobby_
-
-
-
-
-
 
 #################################################
 
@@ -164,6 +154,7 @@ scoreboard players set @e[type=function:lobby_respawn_point] num1 0
 
 #杀手没了就判定平民获胜
 execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @a[tag=game_activate,tag=main_player_] run function call_function/innocent_win
+
 #开启游戏运行时间计时器
 scoreboard players add @e[type=function:lobby_respawn_point,tag=time_start] tick2 1
 #发放武器
@@ -176,6 +167,7 @@ execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s run playsound mob.enderdragon.breathe
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=2}] minecraft:bow 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=3}] minecraft:iron_sword 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=3}] function:flying_blade 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
 
 #生成金锭
