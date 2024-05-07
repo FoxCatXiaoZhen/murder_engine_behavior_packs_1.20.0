@@ -7,5 +7,5 @@ tag @e[c=1,type=function:knive_navigation,tag=!run_] add run_
 tp @e[type=function:knive_navigation] @e[type=function:lobby_respawn_point,c=1]
 
 #冷却时间
-scoreboard players set @s tick2 200
+execute as @s[scores={tick2=..-1}] at @s run scoreboard players operation @s tick2 = knive_cd time_setting
 clear @s function:flying_blade
