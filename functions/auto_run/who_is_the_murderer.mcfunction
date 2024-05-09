@@ -148,12 +148,12 @@ execute as @a[tag=in_game_,c=1] as @e[type=function:lobby_respawn_point,scores={
 
 #检测到所有平民都无了 / 就执行杀手获胜
 execute as @a[scores={version=1..2},tag=!died] at @s run scoreboard players add @e[type=function:lobby_respawn_point] num1 1
-execute as @e[type=function:lobby_respawn_point,scores={num1=..0}] at @s[scores={num2=10..}] if entity @a[tag=game_activate,tag=main_player_] run function call_function/killer_win
+#s execute as @e[type=function:lobby_respawn_point,scores={num1=..0}] at @s[scores={num2=10..}] if entity @e[tag=game_activate] run function call_function/killer_win
 scoreboard players add @e[type=function:lobby_respawn_point,scores={num2=0..10}] num2 1
 scoreboard players set @e[type=function:lobby_respawn_point] num1 0
 
 #杀手没了就判定平民获胜
-execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @a[tag=game_activate,tag=main_player_] run function call_function/innocent_win
+#s execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @e[tag=game_activate] run function call_function/innocent_win
 
 #开启游戏运行时间计时器
 scoreboard players add @e[type=function:lobby_respawn_point,tag=time_start] tick2 1

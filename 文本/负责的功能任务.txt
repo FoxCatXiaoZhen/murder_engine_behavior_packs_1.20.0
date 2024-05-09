@@ -112,7 +112,7 @@
 
 》添加职业emoji，替代文字长度在rawtext中 = 小振 （完成）
 
-》将有关game_activate标签转移到lobby实体上
+》将有关game_activate标签转移到lobby实体上 = 小振 （完成）
 
 》分析指令进行模块化，但是先去研究什么是模块。 = 小振 
 
