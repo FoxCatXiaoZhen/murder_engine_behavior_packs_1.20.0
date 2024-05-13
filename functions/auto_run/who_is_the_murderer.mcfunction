@@ -165,10 +165,10 @@ execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=160
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=180}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在1秒后§a获得§n武器"}]}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f已获得§n武器"}]}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s run playsound mob.enderdragon.breathe
-execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=2}] minecraft:bow 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
-execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=3}] minecraft:iron_sword 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
-execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run give @a[scores={version=3}] function:flying_blade 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
-execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s unless entity @s[hasitem={item=bow}]                    run give @s[scores={version=2}] minecraft:bow 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s unless entity @s[hasitem={item=iron_sword}]             run give @s[scores={version=3}] minecraft:iron_sword 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s unless entity @s[hasitem={item=function:flying_blade}]  run give @s[scores={version=3}] function:flying_blade 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
+#s execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
 
 #生成金锭
 scoreboard players add @e[type=function:gold_ingot_generator] tick 0
