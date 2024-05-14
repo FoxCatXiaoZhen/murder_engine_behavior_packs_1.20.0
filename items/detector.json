@@ -1,0 +1,38 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "function:detector"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "detector"
+			},
+
+			"minecraft:max_stack_size": 16,
+			"minecraft:foil": false,
+			"minecraft:stacked_by_data": true,
+			"minecraft:hand_equipped": false,
+			"minecraft:cooldown": {
+				"category": "game",
+				"duration": 1
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "start",
+					"target": "self"
+				}
+			}
+		},
+		"events": {
+			"start": {
+				"run_command": {
+					"command": [
+						""
+					],
+					"target": "self"
+				}
+			}
+		}
+	}
+}
