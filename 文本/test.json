@@ -1,2 +1,534 @@
-{"rawtext": [{"text": "分："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "minute"}},{"text": " 秒："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "second"}},{"text": " 刻："},{"score": {"name": "@e[type=function:lobby_respawn_point,tag=time_start]","objective": "tick"}}]}
-
+{
+    "rawtext": [
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@e[type=function:lobby_respawn_point,scores={point=0}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "translate": "%%2",
+                                "type": "control",
+                                "with": {
+                                    "rawtext": [
+                                        {
+                                            "selector": "@e[type=function:lobby_respawn_point,scores={minute=..0}]"
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": "§c"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@e[type=function:lobby_respawn_point,scores={minute=1..}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "translate": "%%2",
+                                "type": "control",
+                                "with": {
+                                    "rawtext": [
+                                        {
+                                            "selector": "@e[type=function:lobby_respawn_point,scores={minute=1..}]"
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "translate": "%%2",
+                                                    "type": "control",
+                                                    "with": {
+                                                        "rawtext": [
+                                                            {
+                                                                "selector": "@e[type=function:lobby_respawn_point,scores={minute=0..9}]"
+                                                            },
+                                                            {
+                                                                "rawtext": [
+                                                                    {
+                                                                        "text": "0"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "rawtext": [
+                                                                    {
+                                                                        "text": ""
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "score": {
+                                    "name": "@e[type=function:lobby_respawn_point,tag=time_start]",
+                                    "objective": "minute"
+                                }
+                            },
+                            {
+                                "text": ":"
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@e[type=function:lobby_respawn_point,scores={second=0..9}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "score": {
+                "name": "@e[type=function:lobby_respawn_point,tag=time_start]",
+                "objective": "second"
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@e[type=function:lobby_respawn_point,scores={minute=..0}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ":"
+                            },
+                            {
+                                "translate": "%%2",
+                                "type": "control",
+                                "with": {
+                                    "rawtext": [
+                                        {
+                                            "selector": "@e[type=function:lobby_respawn_point,scores={tick=0..9}]"
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "score": {
+                                    "name": "@e[type=function:lobby_respawn_point,tag=time_start]",
+                                    "objective": "tick"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "text": "  §f:"
+        },
+        {
+            "score": {
+                "name": "@s",
+                "objective": "gold"
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@s[scores={version=1}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": "  §a平民"
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@s[scores={version=2}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": "  §b侦探"
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@s[scores={version=3}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": "  §c杀手"
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
+                        "selector": "@s[scores={version=3},hasitem={item=function:detector,location=slot.weapon.mainhand}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": "\n"
+                            },
+                            {
+                                "type": "switch",
+                                "rawtext": [
+                                    {
+                                        "translate": "%%2",
+                                        "with": {
+                                            "rawtext": [
+                                                {
+                                                    "selector": "@e[scores={version=1..2},rm=60]"
+                                                },
+                                                {
+                                                    "rawtext": [
+                                                        {
+                                                            "text": "§f████████████ §7过远§f ████████████"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "translate": "%%2",
+                                                    "with": {
+                                                        "rawtext": [
+                                                            {
+                                                                "selector": "@e[scores={version=1..2},rm=50,r=60]"
+                                                            },
+                                                            {
+                                                                "rawtext": [
+                                                                    {
+                                                                        "text": "§a█§f███████████ §a太远§f ███████████§a█"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "translate": "%%2",
+                                                                "with": {
+                                                                    "rawtext": [
+                                                                        {
+                                                                            "selector": "@e[scores={version=1..2},rm=40,r=50]"
+                                                                        },
+                                                                        {
+                                                                            "rawtext": [
+                                                                                {
+                                                                                    "text": "§a███§f█████████ §a很远§f ██████████§a██"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "translate": "%%2",
+                                                                            "with": {
+                                                                                "rawtext": [
+                                                                                    {
+                                                                                        "selector": "@e[scores={version=1..2},rm=35,r=40]"
+                                                                                    },
+                                                                                    {
+                                                                                        "rawtext": [
+                                                                                            {
+                                                                                                "text": "§a████§f████████ §a很远§f █████████§a███"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    {
+                                                                                        "translate": "%%2",
+                                                                                        "with": {
+                                                                                            "rawtext": [
+                                                                                                {
+                                                                                                    "selector": "@e[scores={version=1..2},rm=30,r=35]"
+                                                                                                },
+                                                                                                {
+                                                                                                    "rawtext": [
+                                                                                                        {
+                                                                                                            "text": "§e█████§f███████ §e蛮远§f ████████§e████"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "translate": "%%2",
+                                                                                                    "with": {
+                                                                                                        "rawtext": [
+                                                                                                            {
+                                                                                                                "selector": "@e[scores={version=1..2},rm=25,r=30]"
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "rawtext": [
+                                                                                                                    {
+                                                                                                                        "text": "§e██████§f██████ §e蛮远§f ███████§e█████"
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "translate": "%%2",
+                                                                                                                "with": {
+                                                                                                                    "rawtext": [
+                                                                                                                        {
+                                                                                                                            "selector": "@e[scores={version=1..2},rm=20,r=25]"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "rawtext": [
+                                                                                                                                {
+                                                                                                                                    "text": "§e███████§f█████ §e蛮远§f ██████§e██████"
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "translate": "%%2",
+                                                                                                                            "with": {
+                                                                                                                                "rawtext": [
+                                                                                                                                    {
+                                                                                                                                        "selector": "@e[scores={version=1..2},rm=15,r=25]"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "rawtext": [
+                                                                                                                                            {
+                                                                                                                                                "text": "§e████████§f████ §e很近§f ████§e████████"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "translate": "%%2",
+                                                                                                                                        "with": {
+                                                                                                                                            "rawtext": [
+                                                                                                                                                {
+                                                                                                                                                    "selector": "@e[scores={version=1..2},rm=10,r=15]"
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "rawtext": [
+                                                                                                                                                        {
+                                                                                                                                                            "text": "§c█████████§f███ §c很近§f ███§c█████████"
+                                                                                                                                                        }
+                                                                                                                                                    ]
+                                                                                                                                                },
+                                                                                                                                                {
+                                                                                                                                                    "translate": "%%2",
+                                                                                                                                                    "with": {
+                                                                                                                                                        "rawtext": [
+                                                                                                                                                            {
+                                                                                                                                                                "selector": "@e[scores={version=1..2},rm=5,r=10]"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                "rawtext": [
+                                                                                                                                                                    {
+                                                                                                                                                                        "text": "█████████§c█§f██ §c太近§f ██§c██████████"
+                                                                                                                                                                    }
+                                                                                                                                                                ]
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                "translate": "%%2",
+                                                                                                                                                                "with": {
+                                                                                                                                                                    "rawtext": [
+                                                                                                                                                                        {
+                                                                                                                                                                            "selector": "@e[scores={version=1..2},rm=2.5,r=5]"
+                                                                                                                                                                        },
+                                                                                                                                                                        {
+                                                                                                                                                                            "rawtext": [
+                                                                                                                                                                                {
+                                                                                                                                                                                    "text": "██████████§c█§f█ §c太近§f █§c███████████"
+                                                                                                                                                                                }
+                                                                                                                                                                            ]
+                                                                                                                                                                        },
+                                                                                                                                                                        {
+                                                                                                                                                                            "translate": "%%2",
+                                                                                                                                                                            "with": {
+                                                                                                                                                                                "rawtext": [
+                                                                                                                                                                                    {
+                                                                                                                                                                                        "selector": "@e[scores={version=1..2},r=2.5]"
+                                                                                                                                                                                    },
+                                                                                                                                                                                    {
+                                                                                                                                                                                        "rawtext": [
+                                                                                                                                                                                            {
+                                                                                                                                                                                                "text": "████████████§c§f §c过近§f §c████████████"
+                                                                                                                                                                                            }
+                                                                                                                                                                                        ]
+                                                                                                                                                                                    }
+                                                                                                                                                                                ]
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    ]
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        ]
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
