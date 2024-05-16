@@ -12,7 +12,7 @@ scoreboard players set @a version 0
 clear @a iron_sword
 clear @a function:flying_blade
 clear @a bow
-clear @a minecraft:filled_map
+clear @a function:detector
 tag @a remove died
 kill @e[type=function:hat_item]
 scoreboard players set @e[type=function:lobby_respawn_point] tick2 0

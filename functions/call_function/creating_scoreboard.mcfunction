@@ -29,3 +29,6 @@ scoreboard objectives add version dummy version
 
 #关于金锭
 scoreboard objectives add gold dummy gold
+
+#关于音效
+scoreboard objectives add sounds_tick dummy sounds_tick
