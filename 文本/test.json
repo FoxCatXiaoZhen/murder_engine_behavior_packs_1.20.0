@@ -6,6 +6,53 @@
             "with": {
                 "rawtext": [
                     {
+                        "selector": "@s[scores={version=3},hasitem={item=function:detector,location=slot.weapon.mainhand}]"
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "translate": "%%2",
+                                "type": "control",
+                                "with": {
+                                    "rawtext": [
+                                        {
+                                            "selector": "@e[scores={version=1..2}]"
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": "                 "
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "rawtext": [
+                                                {
+                                                    "text": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rawtext": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "type": "control",
+            "with": {
+                "rawtext": [
+                    {
                         "selector": "@e[type=function:lobby_respawn_point,scores={point=0}]"
                     },
                     {
@@ -350,7 +397,7 @@
                                                                         {
                                                                             "rawtext": [
                                                                                 {
-                                                                                    "text": "§a███§f█████████ §a很远§f ██████████§a██"
+                                                                                    "text": "§a██§f██████████ §a很远§f ██████████§a██"
                                                                                 }
                                                                             ]
                                                                         },
@@ -364,7 +411,7 @@
                                                                                     {
                                                                                         "rawtext": [
                                                                                             {
-                                                                                                "text": "§a████§f████████ §a很远§f █████████§a███"
+                                                                                                "text": "§a███§f█████████ §a很远§f █████████§a███"
                                                                                             }
                                                                                         ]
                                                                                     },
@@ -378,7 +425,7 @@
                                                                                                 {
                                                                                                     "rawtext": [
                                                                                                         {
-                                                                                                            "text": "§e█████§f███████ §e蛮远§f ████████§e████"
+                                                                                                            "text": "§e████§f████████ §e蛮远§f ████████§e████"
                                                                                                         }
                                                                                                     ]
                                                                                                 },
@@ -392,7 +439,7 @@
                                                                                                             {
                                                                                                                 "rawtext": [
                                                                                                                     {
-                                                                                                                        "text": "§e██████§f██████ §e蛮远§f ███████§e█████"
+                                                                                                                        "text": "§e█████§f███████ §e蛮远§f ███████§e█████"
                                                                                                                     }
                                                                                                                 ]
                                                                                                             },
@@ -406,7 +453,7 @@
                                                                                                                         {
                                                                                                                             "rawtext": [
                                                                                                                                 {
-                                                                                                                                    "text": "§e███████§f█████ §e蛮远§f ██████§e██████"
+                                                                                                                                    "text": "§e██████§f██████ §e蛮远§f ██████§e██████"
                                                                                                                                 }
                                                                                                                             ]
                                                                                                                         },
@@ -415,12 +462,12 @@
                                                                                                                             "with": {
                                                                                                                                 "rawtext": [
                                                                                                                                     {
-                                                                                                                                        "selector": "@e[scores={version=1..2},rm=15,r=25]"
+                                                                                                                                        "selector": "@e[scores={version=1..2},rm=15,r=20]"
                                                                                                                                     },
                                                                                                                                     {
                                                                                                                                         "rawtext": [
                                                                                                                                             {
-                                                                                                                                                "text": "§e████████§f████ §e很近§f ████§e████████"
+                                                                                                                                                "text": "§e████████§f████ §e蛮近§f ████§e████████"
                                                                                                                                             }
                                                                                                                                         ]
                                                                                                                                     },
@@ -434,7 +481,7 @@
                                                                                                                                                 {
                                                                                                                                                     "rawtext": [
                                                                                                                                                         {
-                                                                                                                                                            "text": "§c█████████§f███ §c很近§f ███§c█████████"
+                                                                                                                                                            "text": "§c█████████§f███ §c蛮近§f ███§c█████████"
                                                                                                                                                         }
                                                                                                                                                     ]
                                                                                                                                                 },
@@ -448,7 +495,7 @@
                                                                                                                                                             {
                                                                                                                                                                 "rawtext": [
                                                                                                                                                                     {
-                                                                                                                                                                        "text": "█████████§c█§f██ §c太近§f ██§c██████████"
+                                                                                                                                                                        "text": "█████████§c█§f██ §c很近§f ██§c██████████"
                                                                                                                                                                     }
                                                                                                                                                                 ]
                                                                                                                                                             },

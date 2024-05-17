@@ -8,7 +8,7 @@ execute as @e[type=function:flying_blade] at @s run function call_function/flyin
 execute as @e[type=function:flying_blade,scores={tick=10..}] at @s unless block ~~~ air run function call_function/flying_blade/touch_the_wall 
 
 #当碰撞指定目标就杀死目标和消除自己
-execute as @e[type=function:flying_blade,scores={tick=10..}] at @s if entity @e[scores={version=1..2},r=1.7] run function call_function/flying_blade/successful_assassination
+execute as @e[type=function:flying_blade,scores={tick=10..}] at @s if entity @e[scores={version=1..2},r=1.9] run function call_function/flying_blade/successful_assassination
 
 #提速
 execute as @e[type=function:flying_blade] at @s run execute as @s at @s if block ~~~ air run tp ^^^0.4 
