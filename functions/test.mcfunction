@@ -11,4 +11,17 @@
 #s tp @e[tag=test_] @s
 #s kill @e[tag=test_]
 
-tellraw @a [{"text":"这是一个图片","color":"green"}]
+#s tellraw @a [{"text":"这是一个图片","color":"green"}]
+
+#s playsound mob.blaze.shoot @s ~~~ 1 0.5
+#s playsound dig.sand @s ~~~ 1 0.3
+#s playsound dig.sand @s ~~~ 1 0.5
+#s playsound random.fizz @s ~~~ 1 0.5
+#s playsound random.fizz @s ~~~ 1 0.6
+#s playsound random.fizz @s ~~~ 1 0.7
+
+
+playsound step.amethyst_cluster @s  ~~~ 1 0.8
+playsound step.amethyst_cluster @s  ~~~ 1 0.8
+playsound step.amethyst_cluster @s  ~~~ 1 0.83
+playsound step.amethyst_cluster @s  ~~~ 1 0.83
