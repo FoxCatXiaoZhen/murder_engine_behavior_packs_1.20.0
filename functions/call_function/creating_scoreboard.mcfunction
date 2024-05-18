@@ -26,6 +26,10 @@ scoreboard objectives add time_setting dummy
 scoreboard players add time time_setting 0
 #关于职业
 scoreboard objectives add version dummy version
+scoreboard objectives add version2 dummy version2
 
 #关于金锭
 scoreboard objectives add gold dummy gold
+
+#关于音效
+scoreboard objectives add sounds_tick dummy sounds_tick

@@ -2,14 +2,14 @@
 	"format_version": "1.16.100",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "function:knive_navigation",
-			"is_spawnable": false,
+			"identifier": "function:smoke_grenade",
+			"is_spawnable": true,
 			"is_summonable": true,
 			"is_experimental": false
 		},
 		"components": {
 			"minecraft:physics": {
-				"has_gravity": false,
+				"has_gravity": true,
 				"has_collision": true
 			},
 			"minecraft:health" :{

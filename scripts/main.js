@@ -5,8 +5,8 @@ import {ModalFormData,ActionFormData} from '@minecraft/server-ui'
 
 var setting = world.scoreboard.getObjective("setting")
 
-world.afterEvents.worldInitialize.subscribe(() => {
-    
+world.afterEvents.worldInitialize.subscribe(e => {
+   // world.runCommandAsync('effect @a saturation 1 255 true')
 })
 //侦测伤害
 world.afterEvents.entityHurt.subscribe(e => {
@@ -16,16 +16,17 @@ world.afterEvents.entityHurt.subscribe(e => {
     let hurting = e.hurtEntity.nameTag//受害者id
     let damaging = e.damageSource.damagingEntity.nameTag//.replace(/(?<=.*)\n.*/, "")//伤害者
     //system.run(() => hurt.runCommandAsync('say '+hurting));
-   if (e.damageSource.cause == 'projectile') {
+   if (e.damageSource.cause=='projectile') {
         hurt.runCommandAsync('damage @s 100 entity_attack entity '+damaging),
-        hurt.runCommandAsync('execute as @a[name='+hurting+',scores={version=1..2}] at @s run kill @a[name='+damaging+',scores={version=2}]')
+        hurt.runCommandAsync('execute as @s[scores={version=1..2}] at @s run kill @a[name="'+damaging+'",scores={version=2}]')
+    }
 
     
      
 
     
 
-}})
+})
 
 const showName = world.afterEvents.entityHealthChanged.subscribe(e => {
     if (e.newValue < 0) return
@@ -42,6 +43,8 @@ world.afterEvents.entityDie.subscribe(e => {
     //die.runCommandAsync('execute as @s[type=player] run tellraw @a {"rawtext":[{"text":"§d>>§l§b"},{"selector":"@s"},{"text":"§f被§a ' + damaging + '§f击杀了!"}]}')
     die.runCommandAsync('execute as @s[type=player] run tellraw ' + damaging + ' {"rawtext":[{"text":"§a>>§c杀死一位玩家|§6积分§b+50"}]}')
     die.runCommandAsync('scoreboard players add ' + damaging + ' scores 50 ')
+    die.runCommandAsync('execute as @s[type=player,scores={version=3}] at @s run kill @a[name="'+damaging+'",scores={version=3}]')
+    die.runCommandAsync('scoreboard players set @s version 0')
     die.runCommandAsync('clear @s bow 0 1')
     die.runCommandAsync('clear @s iron_sword 0 1')
     die.runCommandAsync('clear @s filled_map')
