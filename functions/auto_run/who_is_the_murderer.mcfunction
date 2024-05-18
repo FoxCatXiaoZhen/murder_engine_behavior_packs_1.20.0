@@ -57,7 +57,7 @@ execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
 execute as @a[tag=!death] at @s run clear @s function:flying_blade
 execute as @a[tag=!death] at @s run tag @s add died
 execute as @a[tag=!death] at @s[scores={version=2}] run summon function:hat_item 
-execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+execute as @a[tag=!death,scores={version=1}] at @s run scoreboard players set @s version 0
 
 ################################
 tag @a add death
