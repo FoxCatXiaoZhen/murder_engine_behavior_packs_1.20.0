@@ -1,5 +1,6 @@
 #当出现时脉冲执行动画
 playanimation @e[type=function:smoke_grenade,scores={tick2=!2..}] animation.smoke_grenade.fx
+execute as @e[type=function:smoke_grenade,scores={tick2=!2..}] at @s run playsound smoke_grenade @a ~~~ 0.5
 
 #播放音效
 execute as @e[type=function:smoke_grenade,scores={tick2=60}] at @s run execute as @a at @s run function call_function/smoke_grenade/sound
