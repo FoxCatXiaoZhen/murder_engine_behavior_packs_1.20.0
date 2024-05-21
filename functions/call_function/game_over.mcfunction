@@ -4,6 +4,7 @@ tag @e[type=function:lobby_respawn_point] remove time_start
 scoreboard players reset @e[type=function:gold_ingot_generator] tick
 tag @e[type=function:gold_ingot_generator] remove run_
 kill @e[type=item]
+scoreboard players set @a tick 0 
 scoreboard players set @a tick2 0
 kill @e[type=function:flying_blade]
 kill @e[type=function:knive_navigation]
@@ -15,6 +16,7 @@ clear @a bow
 clear @a function:detector
 tag @a remove died
 kill @e[type=function:hat_item]
+execute as @e[type=function:smoke_grenade] at @s run scoreboard players set @s tick2 10000000
 scoreboard players set @e[type=function:lobby_respawn_point] tick2 0
 scoreboard players set @e[type=function:lobby_respawn_point] tick 0
 scoreboard players set @e version2 0

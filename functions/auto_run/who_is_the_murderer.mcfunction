@@ -57,7 +57,7 @@ execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
 execute as @a[tag=!death] at @s run clear @s function:flying_blade
 execute as @a[tag=!death] at @s run tag @s add died
 execute as @a[tag=!death] at @s[scores={version=2}] run summon function:hat_item 
-execute as @a[tag=!death,scores={version=1}] at @s run scoreboard players set @s version 0
+execute as @a[tag=!death] at @s run scoreboard players set @s version 0
 
 ################################
 tag @a add death
@@ -155,16 +155,17 @@ execute as @a[tag=in_game_,c=1] as @e[type=function:lobby_respawn_point,scores={
 
 #检测到所有平民都无了 / 就执行杀手获胜
 execute as @a[scores={version=1..2},tag=!died] at @s run scoreboard players add @e[type=function:lobby_respawn_point] num1 1
-execute unless entity @e[tag=de_bug_] run execute as @e[type=function:lobby_respawn_point,scores={num1=..0}] at @s[scores={num2=10..}] if entity @e[tag=game_activate] run function call_function/killer_win
+execute unless entity @e[tag=debug_] run execute as @e[type=function:lobby_respawn_point,scores={num1=..0}] at @s[scores={num2=10..}] if entity @e[tag=game_activate] run function call_function/killer_win
 scoreboard players add @e[type=function:lobby_respawn_point,scores={num2=0..10}] num2 1
 scoreboard players set @e[type=function:lobby_respawn_point] num1 0
 
 #杀手没了就判定平民获胜
-execute unless entity @e[tag=de_bug_] run execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @e[tag=game_activate] run function call_function/innocent_win
+execute unless entity @e[tag=debug_] run execute as @r[tag=in_game_] unless entity @a[scores={version=3},tag=!died]  run execute if entity @e[tag=game_activate] run function call_function/innocent_win
 
 #开启游戏运行时间计时器
 scoreboard players add @e[type=function:lobby_respawn_point,tag=time_start] tick2 1
 #发放武器
+execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=1}] run scoreboard players set @a[scores={version=3}] tick 1500
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=100}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在5秒后§a获得§n武器"}]}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=120}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在4秒后§a获得§n武器"}]}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=140}] run tellraw @a {"rawtext":[{"text":"§d>>§c杀手§e与§b侦探§f将在3秒后§a获得§n武器"}]}
@@ -177,7 +178,7 @@ execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick2=200}] run execute as @a at @s unless entity @s[hasitem={item=function:flying_blade}]  run give @s[scores={version=3}] function:flying_blade 1 0 {"item_lock": { "mode": "lock_in_inventory" }}
 execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={tick=19,second=59,minute=0}] run give @a[scores={version=3}] function:detector
 #接近1分钟就发放探测仪
-execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
+#s execute as @e[tag=time_start,type=function:lobby_respawn_point,scores={minute=1,second=30}] run execute as @a[tag=in_game_] unless entity @s[hasitem={item=minecraft:filled_map}] run give @s minecraft:filled_map 1 2 {"item_lock": { "mode": "lock_in_inventory" }}
 
 #生成金锭
 scoreboard players add @e[type=function:gold_ingot_generator] tick 0

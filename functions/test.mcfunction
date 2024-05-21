@@ -13,15 +13,19 @@
 
 #s tellraw @a [{"text":"这是一个图片","color":"green"}]
 
-#s playsound mob.blaze.shoot @s ~~~ 1 0.5
-#s playsound dig.sand @s ~~~ 1 0.3
-#s playsound dig.sand @s ~~~ 1 0.5
-#s playsound random.fizz @s ~~~ 1 0.5
-#s playsound random.fizz @s ~~~ 1 0.6
-#s playsound random.fizz @s ~~~ 1 0.7
+playsound mob.blaze.shoot @s ~~~ 0.5 0.35
+playsound dig.sand        @s ~~~ 1   0.3
+playsound dig.sand        @s ~~~ 1   0.5
+playsound random.fizz     @s ~~~ 0.5 0.3
+playsound random.fizz     @s ~~~ 0.5 0.4
+playsound random.fizz     @s ~~~ 1   0.5
+playsound random.fizz     @s ~~~ 1   0.6
+playsound random.fizz     @s ~~~ 1   0.7
+playsound random.fizz     @s ~~~ 1   0.8
+playsound random.fizz     @s ~~~ 1   0.9
+playsound random.fizz     @s ~~~ 1   1.0
 
-
-playsound step.amethyst_cluster @s  ~~~ 1 0.8
-playsound step.amethyst_cluster @s  ~~~ 1 0.8
-playsound step.amethyst_cluster @s  ~~~ 1 0.83
-playsound step.amethyst_cluster @s  ~~~ 1 0.83
+#s playsound step.amethyst_cluster @s  ~~~ 1 0.8
+#s playsound step.amethyst_cluster @s  ~~~ 1 0.8
+#s playsound step.amethyst_cluster @s  ~~~ 1 0.83
+#s playsound step.amethyst_cluster @s  ~~~ 1 0.83
