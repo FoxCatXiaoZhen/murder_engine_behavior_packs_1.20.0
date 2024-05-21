@@ -12,8 +12,8 @@ execute unless entity @a[scores={version=3}] run execute as @r[      type=!playe
 #迷雾
 execute if entity @e[type=function:smoke_grenade,scores={tick2=60}] run fog @a[scores={version=!3}] push fx:smoke fx:smoke
 execute if entity @e[type=function:smoke_grenade,scores={tick2=450}] run fog @a[scores={version=!3}] push fx:org fx:org
-execute if entity @e[type=function:smoke_grenade,scores={tick2=490}] run fog @a remove fx:smoke
-execute if entity @e[type=function:smoke_grenade,scores={tick2=490}] run fog @a remove fx:org
+execute if entity @e[type=function:smoke_grenade,scores={tick2=490..}] run fog @a remove fx:smoke
+execute if entity @e[type=function:smoke_grenade,scores={tick2=490..}] run fog @a remove fx:org
 
 
 
