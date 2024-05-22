@@ -15,6 +15,7 @@ scoreboard players set @a version 0
 clear @a iron_sword
 clear @a function:flying_blade
 clear @a bow
+clear @a arrow
 clear @a function:detector
 tag @a remove died
 kill @e[type=function:hat_item]
