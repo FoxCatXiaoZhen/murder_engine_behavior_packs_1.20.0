@@ -4,7 +4,7 @@ execute as @e[type=function:smoke_grenade,scores={tick2=!2..}] at @s run playsou
 
 #播放音效
 execute as @e[type=function:smoke_grenade,scores={tick2=60}] at @s run execute as @a at @s run function call_function/smoke_grenade/sound
-execute as @e[type=function:smoke_grenade,scores={tick2=450}] at @s run execute as @a at @s run playsound random.fizz     @s ^^^ 0.5 1.0
+execute as @e[type=function:smoke_grenade,scores={tick2=450}] at @s run execute as @a at @s run playsound random.fizz     @s ^^^ 0.5 0.5
 
 #烟雾
 execute as @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}] at @s run particle fx:smoke

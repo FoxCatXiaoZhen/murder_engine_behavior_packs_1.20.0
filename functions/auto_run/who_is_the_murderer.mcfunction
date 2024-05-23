@@ -43,9 +43,11 @@ execute as @a[scores={version=1}] if score @s gold >= bow gold run scoreboard pl
 #s execute as @a[scores={version=2}] unless entity @s[hasitem={item=arrow}] unless score @s tick2 = bow_cd tick2 run scoreboard players add @s tick2 1
 #s execute as @a[scores={version=2}] if entity @s[hasitem={item=arrow}] run scoreboard players set @s tick2 0
 
-execute as @a[scores={version=2},hasitem={item=arrow}] at @s run scoreboard players operation @s tick2 = bow_cd tick2   
+execute as @a[scores={version=2}] at @s if score @s tick2 = bow_cd tick2 unless entity @s[hasitem={item=arrow}] run function call_function/sound/sheriff_bow_use
 execute as @a[scores={version=2}] at @s[scores={tick2=0..}] unless entity @s[hasitem={item=arrow}] run scoreboard players add @s tick2 -1 
 execute as @a[scores={version=2}] at @s[scores={tick2=0}] run replaceitem entity @s slot.inventory 0 arrow 1
+execute as @a[scores={version=2,tick2=0}] at @s run function call_function/sound/sheriff_bow_ready
+execute as @a[scores={version=2,tick2=..0}] at @s run scoreboard players operation @s tick2 = bow_cd tick2 
 
 ####################################################
 
