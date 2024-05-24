@@ -1,3 +1,4 @@
+effect @s saturation 20 5 true
 gamemode a @a
 fog @a remove fx:smoke
 fog @a remove fx:org

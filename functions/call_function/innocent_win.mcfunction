@@ -1,3 +1,5 @@
+execute as @a run scoreboard players operation @s version2 = @s version
+execute as @a run scoreboard players operation @s version2 = @s version
 
 title @a title 平民方获胜！
 tellraw @a { "rawtext": [{ "text": "§a>>§a平民方§e获胜\n§f-------------\n§d>>§b玩家身份列表§d<<" }] }
