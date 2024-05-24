@@ -1,1 +1,1 @@
-execute as @a[scores={version=..1},tag=!died] at @s if entity @e[type=function:hat_item,r=1.5] run function call_function/innocent_to_shuffle
+execute as @a[scores={version=1},tag=!died] at @s if entity @e[type=function:hat_item,r=1.5] run function call_function/innocent_to_shuffle

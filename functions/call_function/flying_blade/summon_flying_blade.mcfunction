@@ -1,4 +1,9 @@
 playsound scrape @a ~~~ 0.5 1.2
+playsound game.player.attack.strong @s ~~~ 1 0.95
+playsound game.player.attack.strong @s ~~~ 1 1
+playsound random.bow @s ~~~ 0.3 0.25
+playsound random.bow @s ~~~ 0.3 0.35
+
 summon function:flying_blade ^^1.2^1
 summon function:knive_navigation ^^1.2^11
 execute as @e[c=1,type=function:flying_blade,tag=!run_] at @s run tp ^^^ facing @e[c=1,type=function:knive_navigation,tag=!run_]
