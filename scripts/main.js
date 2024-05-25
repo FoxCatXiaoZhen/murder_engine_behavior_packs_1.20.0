@@ -167,7 +167,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         const playerName = player.name;
         const ui = new ModalFormData();
         ui.title('抛刀冷却设置')
-        ui.slider('冷却时间',5,120,10)
+        ui.slider('冷却时间',5,120,1)
 
 
         ui.show(player).then(data => {
@@ -186,7 +186,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         const playerName = player.name;
         const ui = new ModalFormData();
         ui.title('弓箭价格设置')
-        ui.slider('价格设置',1,30,10)
+        ui.slider('价格设置',1,30,1)
 
 
         ui.show(player).then(data => {
