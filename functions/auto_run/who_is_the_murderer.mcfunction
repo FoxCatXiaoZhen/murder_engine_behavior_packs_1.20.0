@@ -67,7 +67,6 @@ scoreboard players set in_game_ version 0
 
 #实时将存活的玩家自己的重生位置设置
 execute if entity @e[tag=game_activate] as @a[scores={version=1..3},tag=!dont_set_] if entity @e[scores={version=1..}] at @s run spawnpoint @s ~~~
-#execute if entity @e[type=function:lobby_respawn_point] as @a[scores={version=0..3},tag=!died] unless entity @e[scores={version=1..}] at @e[type=function:lobby_respawn_point] run spawnpoint @s ~~~
 #将死去的玩家重生位置清除
 execute if entity @e[tag=game_activate] as @a[scores={version=0},tag=dont_set_] at @s run clearspawnpoint @s
 
@@ -89,8 +88,8 @@ execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
 execute as @a[tag=!death] at @s run clear @s function:flying_blade
 execute as @a[tag=!death] at @s run tag @s add died
 execute as @a[tag=!death] at @s[scores={version=2}] run summon function:hat_item 
-#execute as @a[tag=!death] at @s run scoreboard players set @s version 0
-execute as @a[tag=!death] at @s unless entity @e[scores={version=1..}] run tp @s @e[type=function:lobby_respawn_point]
+execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+
 
 ################################
 tag @a add death
