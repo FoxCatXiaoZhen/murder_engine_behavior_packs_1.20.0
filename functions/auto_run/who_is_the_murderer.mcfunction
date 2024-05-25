@@ -59,11 +59,19 @@ gamerule showtags false
 ################
 
 
+#################################################
+#统计玩家数量 / 再玩家稀少的情况下停止执行实时设置玩家重生点。
+execute as @e[scores={version=1..3}] at @s run scoreboard players add in_game_ version 1
+execute if score in_game_ version matches 0..2 run tag @a[scores={version=1..3}] add dont_set_
+scoreboard players set in_game_ version 0
 
 #实时将存活的玩家自己的重生位置设置
-execute if entity @e[tag=game_activate] as @a[scores={version=1..3},tag=!died] at @s run spawnpoint @s ~~~
+execute if entity @e[tag=game_activate] as @a[scores={version=1..3},tag=!dont_set_] if entity @e[scores={version=1..}] at @s run spawnpoint @s ~~~
+#execute if entity @e[type=function:lobby_respawn_point] as @a[scores={version=0..3},tag=!died] unless entity @e[scores={version=1..}] at @e[type=function:lobby_respawn_point] run spawnpoint @s ~~~
 #将死去的玩家重生位置清除
-execute if entity @e[tag=game_activate] as @a[scores={version=0},tag=died] at @s run clearspawnpoint @s
+execute if entity @e[tag=game_activate] as @a[scores={version=0},tag=dont_set_] at @s run clearspawnpoint @s
+
+#################################################
 
 #检测玩家死亡
 #################################################
@@ -81,7 +89,8 @@ execute as @a[tag=!death] at @s run clear @s minecraft:iron_sword
 execute as @a[tag=!death] at @s run clear @s function:flying_blade
 execute as @a[tag=!death] at @s run tag @s add died
 execute as @a[tag=!death] at @s[scores={version=2}] run summon function:hat_item 
-execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+#execute as @a[tag=!death] at @s run scoreboard players set @s version 0
+execute as @a[tag=!death] at @s unless entity @e[scores={version=1..}] run tp @s @e[type=function:lobby_respawn_point]
 
 ################################
 tag @a add death
