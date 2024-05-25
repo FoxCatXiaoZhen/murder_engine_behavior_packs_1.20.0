@@ -34,3 +34,6 @@ scoreboard objectives add gold dummy gold
 
 #关于音效
 scoreboard objectives add sounds_tick dummy sounds_tick
+
+#关于侦探弓箭的冷却的虚拟积分版
+scoreboard players set bow_cd tick2 100

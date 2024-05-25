@@ -1,7 +1,13 @@
 effect @s saturation 20 5 true
 gamemode a @a
+tag @e remove game_activate
+tag @a remove dont_set_
+clearspawnpoint @a 
 fog @a remove fx:smoke
 fog @a remove fx:org
+tp @a @e[type=function:lobby_respawn_point,c=1]
+execute as @e[type=function:lobby_respawn_point] at @s run spawnpoint @a ~~~
+tp @a @e[type=function:lobby_respawn_point,c=1]
 tp @a @e[type=function:lobby_respawn_point,c=1]
 tag @e[type=function:lobby_respawn_point] remove game_activate
 tag @e[type=function:lobby_respawn_point] remove time_start
