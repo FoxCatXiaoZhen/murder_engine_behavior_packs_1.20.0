@@ -1,5 +1,5 @@
 #**描述**
-
+👁️‍🗨️
 该库的行为包是让在Minecraft基岩版 1.20.x 以上的版本的玩家快速搭建，谁是杀手游戏地图的插件，
 如果你应为烦恼没时间专研底层编程，可以尝试用我们的插件看看吧！
 该插件满足了游戏需要的功能。
@@ -15,7 +15,7 @@
 
 
 #**该怎么做**
-
+🌟
 
 1.在右边Releases哪里点击。
 
@@ -30,13 +30,12 @@
 
 
 5.用give指令获取物品以下物品
-```
-/give @s function:lobby_respawn_point_spawn_egg
 
-/give @s function:player_respawn_point_spawn_egg
+```/give @s function:lobby_respawn_point_spawn_egg ```
 
-/give @s function:gold_ingot_generator_spawn_egg
-```
+```/give @s function:player_respawn_point_spawn_egg```
+
+```/give @s function:gold_ingot_generator_spawn_egg```
 
 6.将“大厅出生点”重生蛋放置在你的大厅的中央。（也可放置在任意位置）
 ![image](https://github.com/FoxCatXiaoZhen/murder_engine_behavior_packs_1.20.0/assets/117345940/c81b57dc-570d-4594-bc7f-6c8ddf168e6f)
@@ -79,9 +78,14 @@
 
 #**优化问题**
 
-由于我个人是编程是比较新手，以及加上更新维护部分可能略微缓慢。
+🥹由于我个人是编程是比较新手，以及加上更新维护部分可能略微缓慢。
 所有决定将项目上传到github上分享，靠github社区来共同维护会比较好。
 如果你有建议和bug可以在Issues哪里提交bug或友好提议。我会尝试解决。
 
 有好的代码优化和新增可以到pull requests合并到我的库中。
 感谢看到这里。:3
+
+
+
+#**注意**
+🙏所有未经授权附加包请勿转载二次分发。
