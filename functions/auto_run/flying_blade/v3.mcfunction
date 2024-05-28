@@ -11,7 +11,7 @@ execute as @e[type=function:flying_blade,scores={tick=10..}] at @s unless block 
 execute as @e[type=function:flying_blade,scores={tick=10..}] at @s if entity @e[scores={version=1..2},r=3] run function call_function/flying_blade/successful_assassination
 
 #提速
-execute as @e[type=function:flying_blade] at @s run execute as @s at @s if block ~~~ air run tp ^^^0.4 
+execute as @e[type=function:flying_blade] at @s run execute as @s at @s if block ~~~ air run tp ^^^0.5
 
 
 #太久没判断到实体或墙壁，就清除
