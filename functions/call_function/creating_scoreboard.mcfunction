@@ -37,3 +37,5 @@ scoreboard objectives add sounds_tick dummy sounds_tick
 
 #关于侦探弓箭的冷却的虚拟积分版
 scoreboard players set bow_cd tick2 100
+#关于侦探弓箭的冷却的虚拟积分版
+scoreboard players set knive_cd time_setting 100

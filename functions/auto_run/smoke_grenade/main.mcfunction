@@ -8,8 +8,8 @@ execute as @e[type=function:smoke_grenade,scores={tick2=450}] at @s run execute 
 
 #烟雾
 execute as @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}] at @s run particle fx:smoke
-execute as @a[scores={version=3}] at @s      run execute as @r[rm=30,type=!player,c=4,family=function] at @s if entity @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}]  run particle fx:smoke
-execute unless entity @a[scores={version=3}] run execute as @r[      type=!player,c=4,family=function] at @s if entity @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}]  run particle fx:smoke
+execute as @a[scores={version=3}] at @s      run execute as @r[rm=30,type=!player,c=4,family=function,type=!function:flying_blade] at @s if entity @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}]  run particle fx:smoke
+execute unless entity @a[scores={version=3}] run execute as @r[      type=!player,c=4,family=function,type=!function:flying_blade] at @s if entity @e[type=function:smoke_grenade,scores={tick2=60..400,tick=0}]  run particle fx:smoke
 #迷雾
 execute if entity @e[type=function:smoke_grenade,scores={tick2=60}] run fog @a[scores={version=1..2}] push fx:smoke fx:smoke
 execute if entity @e[type=function:smoke_grenade,scores={tick2=450}] run fog @a[scores={version=1..2}] push fx:org fx:org
