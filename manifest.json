@@ -5,7 +5,7 @@
         "description": "引擎配置了所有谁是杀手游戏所需要的功能，仅支持1.20.0以上版本的minecraft。",
         "uuid": "e8bd3fcb-ac53-43d8-a9ea-ae845d8b6807",
         "version": [1, 0, 3],
-        "min_engine_version": [ 1, 20, 73 ]
+        "min_engine_version": [ 1, 20, 80 ]
     },
     "metadata": {
 		"authors": ["pack.authors"],
