@@ -7,7 +7,7 @@
 由于插件是基于Minecraft指令来编写，大量使用了mcfunction调用脚本，使用少量的js代码编写功能，
 如果未来Minecraft基岩版更新中插件可能还能稳定在未来的版本中继续使用，即便js代码失效核心基本核心功能可能不会失效。
 
-
+依赖资源包的库：https://github.com/FoxCatXiaoZhen/murder_engine_resource_packs_1.20.0
 
 
 
