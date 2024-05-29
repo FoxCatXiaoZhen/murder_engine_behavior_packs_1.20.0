@@ -1,6 +1,6 @@
 clearspawnpoint @s
 scoreboard players add @s version 0 
-execute unless entity @e[tag=game_activate] run gamemode a @s
+execute unless entity @e[tag=game_activate] run gamemode a @s[tag=!main_player_]
 execute if entity     @e[tag=game_activate] run gamemode spectator @s
 execute if entity     @e[tag=game_activate] run tag @s add died
 execute if entity     @e[tag=game_activate] run tp @s @r[scores={version=1..3},tag=!died,type=!player]
