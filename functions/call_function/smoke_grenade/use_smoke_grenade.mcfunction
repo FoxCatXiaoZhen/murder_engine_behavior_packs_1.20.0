@@ -8,5 +8,5 @@ execute as @r at @s unless entity @s run summon function:smoke_grenade
 
 
 #冷却时间
-execute as @s[scores={tick=..-1}] at @s run scoreboard players set @s tick 1500
+execute as @s[scores={tick=..-1},m=!c] at @s run scoreboard players set @s tick 1500
 clear @s[m=!c] function:smoke_grenade 0 1
