@@ -1,14 +1,14 @@
 #**描述**
 👁️‍🗨️
 
-该库的行为包是让在Minecraft基岩版 1.20.x 以上的版本的玩家快速搭建，谁是杀手游戏地图的插件，
-如果你应为烦恼没时间专研底层编程，可以尝试用我们的插件看看吧！
-该插件满足了游戏需要的功能。
+该库行为包是让Minecraft基岩版 1.20.x 以上版本的玩家快速搭建谁是杀手地图插件，
+如果编写指令太麻烦了，可以尝试用这项插件看看吧！
+插件满足了游戏基本需要的功能。
 
-由于插件是基于Minecraft指令来编写，大量使用了mcfunction调用脚本，使用少量的js代码编写功能，
-如果未来Minecraft基岩版更新中插件可能还能稳定在未来的版本中继续使用，即便js代码失效核心基本核心功能可能不会失效。
+插件是基于Minecraft指令来编写核心功能大量使用了mcfunction脚本，使用少量的js代码编写功能，
+确保未来Minecraft基岩版更新中插件还能稳定在未来的版本中继续使用，即便api编写的代码失效，基本核心功能则可能不会失效。
 
-依赖资源包的库：https://github.com/FoxCatXiaoZhen/murder_engine_resource_packs_1.20.0
+关于材质依赖资源包的库：https://github.com/FoxCatXiaoZhen/murder_engine_resource_packs_1.20.0
 
 
 具体有哪些亮点功能🌟
